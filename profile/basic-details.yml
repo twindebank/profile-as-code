@@ -1,0 +1,12 @@
+basic_details:
+  name: Theo Windebank
+  age: 23
+  mobile_number: *mobile_number
+  email: *email
+  website: theowindebank.co.uk
+  git: twindebank
+  linkedin: linkedin.com/in/theowindebank
+  bio: >
+    Having graduated from the University of Oxford with a high 2.i in Engineering Science, I am now on the pursuit to
+    advance my career in applied Machine Learning and Data Science. My current position has me working as part of a team
+    to deliver a centralised machine learning platform for usage across the BBC's many divisions.
