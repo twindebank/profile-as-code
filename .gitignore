@@ -357,3 +357,4 @@ venv.bak/
 
 # profile-as-code
 .private.yml
+profile-private.yml
