@@ -355,3 +355,5 @@ venv.bak/
 # intellij
 .idea
 
+# profile-as-code
+.private.yml
