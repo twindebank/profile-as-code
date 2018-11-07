@@ -1,15 +1,17 @@
 # generated with files from profile/, do not edit directly
 private:
   email: &email <CENSORED>
-  mobile_number: &mobile_number <CENSORED>
+  mobile: &mobile <CENSORED>
 basic_details:
   name: Theo Windebank
   age: 23
-  mobile_number: *mobile_number
+  mobile: *mobile
   email: *email
-  website: theowindebank.co.uk
+  homepage: theowindebank.co.uk
   git: twindebank
   linkedin: linkedin.com/in/theowindebank
+  address: Notting Hill, London
+  github: twindebank
   bio: >
     Having graduated from the University of Oxford with a high 2.i in Engineering Science, I am now on the pursuit to
     advance my career in applied Machine Learning and Data Science. My current position has me working as part of a team
@@ -51,7 +53,8 @@ education:
       - grade: A*
         count: 6
       - grade: A
-        count: 5experience:
+        count: 5
+experience:
   - &bbc
     name:
       short: The BBC
@@ -100,7 +103,9 @@ professional_projects:
   - &logtracer
     name: Logtracer
     url: https://github.com/bbc/logtracer
-    description:  Adds distributed tracing information to logger output and sends traces to the Stackdriver Trace API.skills:
+    description:  Adds distributed tracing information to logger output and sends traces to the Stackdriver Trace API.
+
+skills:
   - name: Python
     level: Advanced
     experience_years: 3

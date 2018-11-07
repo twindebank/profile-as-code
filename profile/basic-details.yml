@@ -1,11 +1,13 @@
 basic_details:
   name: Theo Windebank
   age: 23
-  mobile_number: *mobile_number
+  mobile: *mobile
   email: *email
-  website: theowindebank.co.uk
+  homepage: theowindebank.co.uk
   git: twindebank
   linkedin: linkedin.com/in/theowindebank
+  address: Notting Hill, London
+  github: twindebank
   bio: >
     Having graduated from the University of Oxford with a high 2.i in Engineering Science, I am now on the pursuit to
     advance my career in applied Machine Learning and Data Science. My current position has me working as part of a team
