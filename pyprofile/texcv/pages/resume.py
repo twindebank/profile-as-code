@@ -29,14 +29,14 @@ def generate(profile):
         %     Personal Data
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %%% Essentials
-        \\name{{}}{{{basic.get('name')}}}
-        \\address{{{basic.get('address')}}}
-        \mobile{{{basic.get('mobile')}}}
+        \\name{{}}{{{basic.get('name', '')}}}
+        \\address{{{basic.get('address', '')}}}
+        \mobile{{{basic.get('mobile', '')}}}
         %%% Social
-        \email{{{basic.get('email')}}}
-        \homepage{{{basic.get('homepage')}}}
-        \github{{{basic.get('github')}}}
-        \linkedin{{{basic.get('linkedin')}}}
+        \email{{{basic.get('email', '')}}}
+        \homepage{{{basic.get('homepage', '')}}}
+        \github{{{basic.get('github', '')}}}
+        \linkedin{{{basic.get('linkedin', '')}}}
     
     """
     body_and_footer = """
