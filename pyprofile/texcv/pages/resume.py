@@ -1,3 +1,6 @@
+import inspect
+
+
 def generate(profile):
     basic = profile['basic_details']
     preamble = """
@@ -61,4 +64,4 @@ def generate(profile):
     {body_and_footer}
     """
 
-    return resume_tex
+    return inspect.cleandoc(resume_tex)
