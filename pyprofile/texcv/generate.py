@@ -13,9 +13,12 @@ def generate_tex(path='profile-public.yml', save_dir='tex-cv'):
     write_tex('resume', save_dir, res)
 
     pages_dir = os.path.join(save_dir, 'resume')
+
     exp = texcv.pages.experience.generate(profile)
     write_tex('experience', pages_dir, exp)
 
+    edu = texcv.pages.education.generate(profile)
+    write_tex('education', pages_dir, edu)
 
 def set_up_tex_dir(tex_dir):
     if not os.path.exists(tex_dir):

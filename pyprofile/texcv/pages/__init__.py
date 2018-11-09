@@ -1,1 +1,1 @@
-from . import resume, experience
+from . import resume, experience, education

@@ -2,6 +2,7 @@
 
 todo:
 - readme
+- look into global setting default of dict to empty string
 - add full data
 - add validation code
 - have 'build' checks for validation
