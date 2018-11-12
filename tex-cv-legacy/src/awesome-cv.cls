@@ -599,8 +599,8 @@
   \\
 }
 
-% Define an environment for cvitems(for cventry)
-\newenvironment{cvitems}{
+% Define an environment for _cvitems(for cventry)
+\newenvironment{_cvitems}{
   \vspace{-4mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]

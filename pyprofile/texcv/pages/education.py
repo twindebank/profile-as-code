@@ -1,66 +1,55 @@
 import inspect
 
+from pyprofile.texcv import templates
+
+GRADE_TEX_MAP = {'A*': 'A${{^*}}$', 'A': 'A'}
+
 
 def generate(profile):
+    cventries = []
+
     universities = profile["education"].get('university')
-    schools = profile["education"].get('school')
-
-    university_tex = []
     for university in universities:
-        cvitems = "\n                    ".join(
-            [f"\item{{{cvitem.strip()}}}" for cvitem in university.get('achievements')]
+        cventry = templates.cventry(
+            university.get('institution'),
+            f"{university.get('degree')} {university.get('course')} - {university.get('classification')}",
+            university.get('college'),
+            university.get('start_date'),
+            university.get('end_date'),
+            university.get('achievements')
         )
+        cventries.append(cventry)
 
-        tex = f"""
-        \cventry
-            {{{university.get('degree')} {university.get('course')} - Classification: {university.get(
-            'classification')}}}
-            {{{university.get('institution')}}}
-            {{{university.get('college')}}}
-            {{{university.get('start_date')} - {university.get('end_date')}}}
-            {{
-              \\begin{{cvitems}}
-                    {cvitems}
-                \end{{cvitems}}
-            }}
-        """
-
-        university_tex.append(tex)
-
-    school_tex = []
+    schools = profile["education"].get('school')
     for school in schools:
-        grade_tex_map = {'A*': 'A${{^*}}$', 'A': 'A'}
-        a_levels = "~~·~~".join(
-            [f"\\textbf{{{grade_tex_map[a_level['grade']]}}} {a_level['name']}" for a_level in school.get('a_levels')]
+        a_levels_cvitem = _a_levels_to_cvitem(school)
+        gcses_cvitem = _gcses_to_cvitem(school)
+        cventry = templates.cventry(
+            school.get('name'),
+            None,
+            school.get('location'),
+            school.get('start_date'),
+            school.get('end_date'),
+            [a_levels_cvitem, gcses_cvitem]
         )
-        gcses = "~~·~~".join(
-            [f"\\textbf{{{gcse['count']}{grade_tex_map[gcse['grade']]}}}s" for gcse in school.get('gcses')]
-        )
-        tex = f"""
-        \cventry
-            {{}}
-            {{{school.get('name')}}}
-            {{{school.get('location')}}}
-            {{{school.get('start_date')} - {school.get('end_date')}}}
-            {{\vspace{{-0.5cm}}
-              \\begin{{cvitems}}
-                \item {{\\textit{{A-Levels:}} {a_levels}
-                \item {{\\textit{{GCSEs:}} {gcses}
-              \end{{cvitems}}
-            }}
-        """
-        school_tex.append(tex)
+        cventries.append(cventry)
 
-    university_cventries = "\n".join(university_tex)
-    school_cventries = "\n".join(school_tex)
-    page = f"""
-    \cvsection{{Education}}
-    \\begin{{cventries}}
-        
-        {university_cventries}
-        {school_cventries}
-    
-    \end{{cventries}}
-    """
+    cvsection = templates.cvsection('Education', cventries)
 
-    return inspect.cleandoc(page)
+    return inspect.cleandoc(cvsection)
+
+
+def _gcses_to_cvitem(school):
+    gcses = "~~·~~".join(
+        [f"\\textbf{{{gcse['count']}{GRADE_TEX_MAP[gcse['grade']]}}}s" for gcse in school.get('gcses')]
+    )
+    gcses_cvitem = f"\\textit{{GCSEs:}} {gcses}"
+    return gcses_cvitem
+
+
+def _a_levels_to_cvitem(school):
+    a_levels = "~~·~~".join(
+        [f"\\textbf{{{GRADE_TEX_MAP[a_level['grade']]}}} {a_level['name']}" for a_level in school.get('a_levels')]
+    )
+    a_levels_cvitem = f"\\textit{{A-Levels:}} {a_levels}"
+    return a_levels_cvitem
