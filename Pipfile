@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pyyaml = "*"
+click = "*"
+ruamel-yaml = "*"
 
 [dev-packages]
 
