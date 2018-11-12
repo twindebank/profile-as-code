@@ -7,7 +7,7 @@ import pyprofile.texcv as texcv
 def generate_tex(path='profile-public.yml', save_dir='tex-cv'):
     set_up_tex_dir(save_dir)
 
-    profile = pyprofile.profile.load(path)
+    profile = pyprofile.profile.load(path, special_chars='&%$#_{}~^\\')
 
     res = texcv.pages.resume.generate(profile)
     write_tex('resume', save_dir, res)

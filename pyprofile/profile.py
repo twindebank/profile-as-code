@@ -1,23 +1,24 @@
 import yaml
 
 
-def load(path):
-    special_chars = '&%$#_{}~^\\'
-
-    profile = yaml.load(open(path))
-
-    for char in special_chars:
-        profile = recursively_replace_dict_str(profile, char, f"\\{char}")
+def load(path, special_chars=''):
+    profile = _escape_chars(yaml.load(open(path)), special_chars)
 
     return profile
 
 
-def recursively_replace_dict_str(d, orig, new):
-    for k, v in d.items():
-        if k == 'achievements':
-            print('hi')
-        if isinstance(v, dict):
-            d[k] = recursively_replace_dict_str(v, orig, new)
-        elif isinstance(v, str):
-            d[k] = v.replace(orig, new)
+def _escape_chars(dct, chars):
+    for char in chars:
+        dct = _recursively_replace_dict_str(dct, char, f"\\{char}")
+    return dct
+
+
+def _recursively_replace_dict_str(d, orig, new):
+    if isinstance(d, dict):
+        for k, v in d.items():
+            d[k] = _recursively_replace_dict_str(v, orig, new)
+    elif isinstance(d, list):
+        return [_recursively_replace_dict_str(i, orig, new) for i in d]
+    elif isinstance(d, str):
+        return d.replace(orig, new)
     return d
