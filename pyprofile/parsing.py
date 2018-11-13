@@ -1,3 +1,6 @@
+import glob
+import io
+
 import click
 import ruamel.yaml as yaml
 
@@ -13,19 +16,25 @@ def load(path, special_chars=''):
 
 
 @click.command()
-@click.argument('path')
+@click.argument('profile_directory')
 @click.option('--censored/--uncensored', '-p', default=True)
 @click.option('--output', '-o')
-def validate_and_parse(censored, path, output):
-    yaml_fd = open(path)
-    yaml_profile = yaml.round_trip_load(
-        yaml_fd,
-        preserve_quotes=True
-    )
-    yaml_fd.close()
+def validate_and_parse_profile(profile_directory, censored, output):
+    public_yaml_filenames = sorted(glob.glob(f"{profile_directory}/*.yml"))
+    public_yaml = '\n'.join([open(f).read() for f in public_yaml_filenames])
+
+    private_yaml_filenames = glob.glob(f"{profile_directory}/.*.yml")
+    private_yaml = '\n'.join([open(f).read() for f in private_yaml_filenames])
 
     if censored:
-        yaml_profile = censor_profile(yaml_profile)
+        private_yaml = censor_private_yaml(private_yaml)
+
+    profile_yaml = ''.join([private_yaml, public_yaml])
+
+    yaml_profile = yaml.round_trip_load(
+        profile_yaml,
+        preserve_quotes=True
+    )
 
     del yaml_profile['private']
 
@@ -33,7 +42,7 @@ def validate_and_parse(censored, path, output):
         yaml_profile,
         open(output, 'w'),
         default_flow_style=False,
-        Dumper=MySD,
+        Dumper=NoAliasDumper,
         indent=2,
         allow_unicode=True,
         explicit_start=True,
@@ -41,14 +50,23 @@ def validate_and_parse(censored, path, output):
     )
 
 
-def censor_profile(profile):
-    private = profile.get('private')
-    for k in private:
-        private[k] = '<CENSORED>'
-    return profile
+def censor_private_yaml(private_yaml):
+    """Have to censor manually as loading in yaml fucks with aliases/anchors"""
+    lines = private_yaml.split('\n')
+    censored_lines = []
+    for line in lines[1:]:
+        if line:
+            key, anchor_and_val = line.split('&')
+            anchor, *_ = anchor_and_val.split(' ')
+            censored_line = f"{key}&{anchor} <CENSORED>"
+            censored_lines.append(censored_line)
+    censored_lines.insert(0, lines[0])
+    censored_yaml = '\n'.join(censored_lines)
+
+    return censored_yaml
 
 
-class MySD(yaml.RoundTripDumper):
+class NoAliasDumper(yaml.RoundTripDumper):
     def ignore_aliases(self, _data):
         return True
 
@@ -71,4 +89,4 @@ def _recursively_replace_dict_str(d, orig, new):
 
 
 if __name__ == '__main__':
-    validate_and_parse()
+    validate_and_parse_profile()
