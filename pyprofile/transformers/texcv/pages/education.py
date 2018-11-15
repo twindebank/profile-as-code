@@ -1,6 +1,6 @@
 import inspect
 
-from pyprofile.texcv import templates
+from pyprofile.transformers.texcv import templates
 
 GRADE_TEX_MAP = {'A*': 'A${{^*}}$', 'A': 'A'}
 

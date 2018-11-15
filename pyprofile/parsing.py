@@ -1,18 +1,7 @@
 import glob
-import io
 
 import click
 import ruamel.yaml as yaml
-
-
-def load(path, special_chars=''):
-    yaml_fd = open(path)
-    yaml_profile = yaml.safe_load(
-        yaml_fd
-    )
-    escaped = _escape_chars(yaml_profile, special_chars)
-    yaml_fd.close()
-    return escaped
 
 
 @click.command()
@@ -20,26 +9,23 @@ def load(path, special_chars=''):
 @click.option('--censored/--uncensored', '-p', default=True)
 @click.option('--output', '-o')
 def validate_and_parse_profile(profile_directory, censored, output):
-    public_yaml_filenames = sorted(glob.glob(f"{profile_directory}/*.yml"))
-    public_yaml = '\n'.join([open(f).read() for f in public_yaml_filenames])
-
-    private_yaml_filenames = glob.glob(f"{profile_directory}/.*.yml")
-    private_yaml = '\n'.join([open(f).read() for f in private_yaml_filenames])
+    public_yaml = load_and_concat_yaml(profile_directory, '*.yml')
+    private_yaml = load_and_concat_yaml(profile_directory, '.*.yml')
 
     if censored:
         private_yaml = censor_private_yaml(private_yaml)
 
-    profile_yaml = ''.join([private_yaml, public_yaml])
+    profile_yaml = '\n'.join([private_yaml, public_yaml])
 
-    yaml_profile = yaml.round_trip_load(
+    profile = yaml.round_trip_load(
         profile_yaml,
         preserve_quotes=True
     )
 
-    del yaml_profile['private']
+    del profile['private']
 
     yaml.round_trip_dump(
-        yaml_profile,
+        profile,
         open(output, 'w'),
         default_flow_style=False,
         Dumper=NoAliasDumper,
@@ -48,6 +34,12 @@ def validate_and_parse_profile(profile_directory, censored, output):
         explicit_start=True,
         explicit_end=True
     )
+
+
+def load_and_concat_yaml(directory, file_pattern):
+    filenames = sorted(glob.glob(f"{directory}/{file_pattern}"))
+    concatenated = '\n'.join([open(f).read() for f in filenames])
+    return concatenated
 
 
 def censor_private_yaml(private_yaml):
@@ -69,12 +61,6 @@ def censor_private_yaml(private_yaml):
 class NoAliasDumper(yaml.RoundTripDumper):
     def ignore_aliases(self, _data):
         return True
-
-
-def _escape_chars(dct, chars):
-    for char in chars:
-        dct = _recursively_replace_dict_str(dct, char, f"\\{char}")
-    return dct
 
 
 def _recursively_replace_dict_str(d, orig, new):
