@@ -1,7 +1,7 @@
 skills:
   - name: Python
     level: Advanced
-    experience_years: 3
+    years: 3
     experience:
       - type: Professional
         details: *bbc

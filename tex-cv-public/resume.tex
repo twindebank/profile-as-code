@@ -1,0 +1,51 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Adapted from https://github.com/posquit0/Awesome-CV
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt, a4paper]{awesome-cv}
+
+%%% Override a directory location for fonts(default: 'fonts/')
+\fontdir[fonts/]
+
+%%% Configure a directory location for sections
+\newcommand*{\sectiondir}{resume/}
+
+%%% Override color
+\colorlet{awesome}{black}
+
+\usepackage{import}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Personal Data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Essentials
+\name{}{Theo Windebank}
+\address{Notting Hill, London}
+\mobile{<CENSORED>}
+%%% Social
+\email{<CENSORED>}
+\homepage{theowindebank.co.uk}
+\github{twindebank}
+\linkedin{linkedin.com/in/theowindebank}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\makecvheader
+
+\import{\sectiondir}{education.tex}
+\vspace{-0.4cm}
+\import{\sectiondir}{experience.tex}
+\vspace{-0.4cm}
+\import{\sectiondir}{skills.tex}
+
+\end{document}

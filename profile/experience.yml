@@ -5,8 +5,8 @@ experience:
       long: The British Broadcasting Coorporation
     location: London, UK
     job_title: Data Engineer
-    date_from: Nov 2017
-    date_to: Current
+    start_date: Nov 2017
+    end_date: Current
     description:
       short:
         - >

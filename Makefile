@@ -1,13 +1,30 @@
-profile.yml: profile/*
+.PHONY: pipenv
 
-profile-public:
-	@echo "Generating PUBLIC profile..."
-	@# todo: rewrite to censor the .private.yml file
-	@echo "# generated with files from profile/, do not edit directly" > profile-public.yml
-	@cat profile/.private-censored.yml profile/*.yml >> profile-public.yml
+yaml-profile-targets := $(wildcard profile/*.yml)
+
+PIPENV_MADE = $(shell pipenv --venv)/made
+
+$(PIPENV_MADE): Pipfile Pipfile.lock
+	pip3 install --upgrade pipenv
+	pipenv install
+	pipenv update
+	touch $$(pipenv --venv)/made
+
+pipenv: $(PIPENV_MADE)
+
+profile-private.yml: $(yaml-profile-targets) $(PIPENV_MADE)
+	@echo "Generating private profile..."
+	pipenv run python -m pyprofile.parsing profile/ --uncensored -o profile-private.yml
 
 
-profile-private:
-	@echo "Generating PRIVATE profile..."
-	@echo "# generated with files from profile/, do not edit directly" > profile-private.yml
-	@cat profile/.private.yml profile/*.yml >> profile-private.yml
+profile-public.yml: $(yaml-profile-targets) $(PIPENV_MADE)
+	@echo "Generating public profile..."
+		pipenv run python -m pyprofile.parsing profile/ --censored -o profile-public.yml
+
+
+
+yaml-profiles: profile-private.yml profile-public.yml
+
+%-tex-cv: yaml-profiles
+	pipenv run python -m pyprofile.transformers.texcv.generate profile-$*.yml tex-cv-$*
+
