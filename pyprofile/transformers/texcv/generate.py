@@ -11,7 +11,7 @@ import pyprofile.transformers.texcv as texcv
 def generate_tex(profile_file, resume_dir):
     set_up_tex_dir(resume_dir)
 
-    profile = texcv.load_profile.load_and_escape(profile_file, special_chars='&%$#_{}~^\\')
+    profile = texcv.load_profile.load_and_escape(profile_file, special_chars='\\&%$#_{}~^')
 
     pages_dir = os.path.join(resume_dir, 'resume')
     structure = {

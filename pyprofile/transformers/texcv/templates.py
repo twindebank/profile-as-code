@@ -21,12 +21,9 @@ def cventry(h1_left=None, h2_left=None, h1_right=None, start_date=None, end_date
             {{{_to_str(h1_left)}}}
             {{{_to_str(h1_right)}}}
             {{{date_str}}}
-    
             {{
                 \\begin{{cvitems}}
-                
                     {_cvitems(cvitems)}
-                
                 \end{{cvitems}}
             }}
     """
