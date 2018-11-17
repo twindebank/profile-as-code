@@ -30,7 +30,8 @@ def generate(profile):
             school.get('location'),
             school.get('start_date'),
             school.get('end_date'),
-            [a_levels_cvitem, gcses_cvitem]
+            [a_levels_cvitem, gcses_cvitem],
+            vspace="-0.5cm"
         )
         cventries.append(cventry)
 

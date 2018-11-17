@@ -13,15 +13,16 @@ def cvsection(section, cventries):
     return inspect.cleandoc(tex)
 
 
-def cventry(h1_left=None, h2_left=None, h1_right=None, start_date=None, end_date=None, cvitems=None):
+def cventry(h1_left=None, h2_left=None, h1_right=None, start_date=None, end_date=None, cvitems=None, vspace=None):
     date_str = _gen_date_str(start_date, end_date)
+    vspace = f"\\vspace{{{vspace}}}" if vspace else ''
     tex = f"""
         \cventry
             {{{_to_str(h2_left)}}}
             {{{_to_str(h1_left)}}}
             {{{_to_str(h1_right)}}}
             {{{date_str}}}
-            {{
+            {{{vspace}
                 \\begin{{cvitems}}
                     {_cvitems(cvitems)}
                 \end{{cvitems}}
