@@ -7,15 +7,15 @@ import pyprofile.transformers.texcv as texcv
 
 @click.command()
 @click.argument('profile_file')
-@click.argument('resume_dir')
-def generate_tex(profile_file, resume_dir):
-    set_up_tex_dir(resume_dir)
+@click.argument('resume_save_dir')
+def generate_tex(profile_file, resume_save_dir):
+    set_up_tex_dir(resume_save_dir)
 
     profile = texcv.load_profile.load_and_escape(profile_file, special_chars='\\&%$#_{}~^')
 
-    pages_dir = os.path.join(resume_dir, 'resume')
+    pages_dir = os.path.join(resume_save_dir, 'resume')
     structure = {
-        'resume': resume_dir,
+        'resume': resume_save_dir,
         'education': pages_dir,
         'experience': pages_dir,
         'skills': pages_dir

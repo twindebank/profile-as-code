@@ -9,11 +9,11 @@ import ruamel.yaml as yaml
 @click.option('--censored/--uncensored', '-p', default=True)
 @click.option('--output', '-o')
 def validate_and_parse_profile(profile_directory, censored, output):
-    public_yaml = load_and_concat_yaml(profile_directory, '*.yml')
-    private_yaml = load_and_concat_yaml(profile_directory, '.*.yml')
+    public_yaml = load_and_concat_raw_yaml(profile_directory, '*.yml')
+    private_yaml = load_and_concat_raw_yaml(profile_directory, '.*.yml')
 
     if censored:
-        private_yaml = censor_private_yaml(private_yaml)
+        private_yaml = censor_private_raw_yaml(private_yaml)
 
     profile_yaml = '\n'.join([private_yaml, public_yaml])
 
@@ -36,13 +36,13 @@ def validate_and_parse_profile(profile_directory, censored, output):
     )
 
 
-def load_and_concat_yaml(directory, file_pattern):
+def load_and_concat_raw_yaml(directory, file_pattern):
     filenames = sorted(glob.glob(f"{directory}/{file_pattern}"))
     concatenated = '\n'.join([open(f).read() for f in filenames])
     return concatenated
 
 
-def censor_private_yaml(private_yaml):
+def censor_private_raw_yaml(private_yaml):
     """Have to censor manually as loading in yaml fucks with aliases/anchors"""
     lines = private_yaml.split('\n')
     censored_lines = []
