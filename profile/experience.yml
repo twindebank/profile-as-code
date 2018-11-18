@@ -36,8 +36,8 @@ experience:
           source tools we use daily.
   - &cue
     name:
-      short: Cue
-      long: Cue Sense Ltd.
+      short: &cueshrt Cue Sense Ltd.
+      long: *cueshrt
     location: London, UK
     job_title: Software Engineer
     start_date: Jun. 2017
@@ -111,6 +111,7 @@ experience:
       short: Communications, Sensors, Signal and Information Processing Research Group
       long: Newcastle University Communications, Sensors, Signal and Information Processing Research Group
     location: Newcastle University, UK
+    job_title: Research Assistant
     start_date: Jul. 2105
     end_date: Sep. 2015
     description:
