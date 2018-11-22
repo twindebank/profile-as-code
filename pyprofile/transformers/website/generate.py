@@ -92,10 +92,10 @@ def load_profile(path):
     return yaml_profile
 
 
-def set_up_html_dir(tex_dir):
-    if not os.path.exists(tex_dir):
-        os.makedirs(tex_dir)
-    os.system(f"cp -r pyprofile/transformers/texcv/_tex_resources/* {tex_dir}/")
+def set_up_html_dir(html_dir):
+    if not os.path.exists(html_dir):
+        os.makedirs(html_dir)
+    os.system(f"cp -r pyprofile/transformers/website/_html_resources/* {html_dir}/")
 
 
 def save_html(html, filename):
@@ -116,9 +116,17 @@ def replace_none_with_str_recurs(any_dict):
                     replace_none_with_str_recurs(item)
 
 
+@click.command()
+@click.argument('profile_file')
+@click.argument('html_save_dir')
+def generate_html(profile_file, html_save_dir):
+    set_up_html_dir(html_save_dir)
+    profile = texcv.load_profile.load_and_escape(profile_file, special_chars='\\&%$#_{}~^')
+
+
+
 def main():
-    LI_AT = os.getenv('LI_AT')
-    profile_info = scrape_profile(LI_AT)
+    p
     # profile_info = json.load(open('profile.json'))
     html = profile_to_html(profile_info)
     save_html(html, "cv-body.html")

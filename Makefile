@@ -19,7 +19,7 @@ profile-private.yml: $(yaml-profile-targets) $(PIPENV_MADE)
 
 profile-public.yml: $(yaml-profile-targets) $(PIPENV_MADE)
 	@echo "Generating public profile..."
-		pipenv run python -m pyprofile.parsing profile/ --censored -o profile-public.yml
+	pipenv run python -m pyprofile.parsing profile/ --censored -o profile-public.yml
 
 
 yaml-profiles: profile-private.yml profile-public.yml
@@ -27,4 +27,6 @@ yaml-profiles: profile-private.yml profile-public.yml
 tex-cv-%: yaml-profiles
 	pipenv run python -m pyprofile.transformers.texcv.generate profile-$*.yml tex-cv-$*
 	docker run --rm -v $(shell pwd)/tex-cv-$*:/source schickling/latex xelatex resume.tex
+
+tex-cvs: tex-cv-private tex-cv-public
 

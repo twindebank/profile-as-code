@@ -1,17 +1,18 @@
 import os
 
-import click
-
 import pyprofile.transformers.texcv as texcv
+from pyprofile import loading
+from pyprofile.utils import recursively_replace_dict_str
+
+TEX_SPECIAL_CHARS = '\\&%$#_{}~^'
 
 
-@click.command()
-@click.argument('profile_file')
-@click.argument('resume_save_dir')
-def generate_tex(profile_file, resume_save_dir):
-    set_up_tex_dir(resume_save_dir)
+def main(profile_file, resume_save_dir):
+    _set_up_tex_dir(resume_save_dir)
 
-    profile = texcv.load_profile.load_and_escape(profile_file, special_chars='\\&%$#_{}~^')
+    profile = loading.load_profile(profile_file)
+
+    profile = _escape_chars(profile, TEX_SPECIAL_CHARS)
 
     pages_dir = os.path.join(resume_save_dir, 'resume')
     structure = {
@@ -23,16 +24,16 @@ def generate_tex(profile_file, resume_save_dir):
 
     for page, directory in structure.items():
         tex = getattr(texcv.pages, page).generate(profile)
-        write_tex(page, directory, tex)
+        _write_tex(page, directory, tex)
 
 
-def set_up_tex_dir(tex_dir):
+def _set_up_tex_dir(tex_dir):
     if not os.path.exists(tex_dir):
         os.makedirs(tex_dir)
     os.system(f"cp -r pyprofile/transformers/texcv/_tex_resources/* {tex_dir}/")
 
 
-def write_tex(filename, tex_dir, content):
+def _write_tex(filename, tex_dir, content):
     if not os.path.exists(tex_dir):
         os.makedirs(tex_dir)
 
@@ -41,5 +42,7 @@ def write_tex(filename, tex_dir, content):
         texfile.write(content)
 
 
-if __name__ == '__main__':
-    generate_tex()
+def _escape_chars(dct, chars):
+    for char in chars:
+        dct = recursively_replace_dict_str(dct, char, f"\\{char}")
+    return dct
