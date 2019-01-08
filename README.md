@@ -27,8 +27,8 @@ Invoke the different transformations using the `Makefile`.
 | Website          | Todo        |
 
 # ToDo
+- move all makefile functionality to interface
 - add ability to select experience, add key field?
 - add full data, inc skills and skills to be developed
 - tweak spacing in cv pdf
-- add code to generate website - maybe even move this repo to twindebank.io
 - have 'build' checks for validation

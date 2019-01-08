@@ -37,3 +37,5 @@ def main(profile_file, website_save_dir):
 
     cv_html = cv.generate_html(profile)
     save_html(cv_html, f"{website_save_dir}/src/cv-body.html")
+
+    logger.info(f"Output saved to '{website_save_dir}'")

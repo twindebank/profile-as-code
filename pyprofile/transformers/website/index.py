@@ -51,12 +51,13 @@ def generate_html(profile, menu_items):
 def _menu_item(text, link):
     html = f"""
     <div class="menu_item">
-        <a href="{link}" {'class="soon"' if link =='#' else ''}>
+        <a href="{link}" {'class="soon"' if link == '#' else ''}>
             {text.upper()}
         </a>
     </div>
     """
     return html
+
 
 def _menu_items(menu_items):
     html = ""
