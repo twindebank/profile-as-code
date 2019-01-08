@@ -1,21 +1,28 @@
+import logging
 import os
 
-import click
-
 import pyprofile.transformers.texcv as texcv
+from pyprofile import loading
+from pyprofile.utils import recursively_replace_dict_str
+
+TEX_SPECIAL_CHARS = '\\&%$#_{}~^'
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
-@click.command()
-@click.argument('profile_file')
-@click.argument('resume_dir')
-def generate_tex(profile_file, resume_dir):
-    set_up_tex_dir(resume_dir)
+def main(profile_file, resume_save_dir):
+    logger.info(f"Loading profile from '{profile_file}' and generating tex cv in '{resume_save_dir}'")
 
-    profile = texcv.load_profile.load_and_escape(profile_file, special_chars='\\&%$#_{}~^')
+    _set_up_tex_dir(resume_save_dir)
 
-    pages_dir = os.path.join(resume_dir, 'resume')
+    profile = loading.load_profile(profile_file)
+
+    profile = _escape_chars(profile, TEX_SPECIAL_CHARS)
+
+    pages_dir = os.path.join(resume_save_dir, 'resume')
     structure = {
-        'resume': resume_dir,
+        'resume': resume_save_dir,
         'education': pages_dir,
         'experience': pages_dir,
         'skills': pages_dir
@@ -23,16 +30,18 @@ def generate_tex(profile_file, resume_dir):
 
     for page, directory in structure.items():
         tex = getattr(texcv.pages, page).generate(profile)
-        write_tex(page, directory, tex)
+        _write_tex(page, directory, tex)
+
+    logger.info(f"Output saved to '{resume_save_dir}'")
 
 
-def set_up_tex_dir(tex_dir):
+def _set_up_tex_dir(tex_dir):
     if not os.path.exists(tex_dir):
         os.makedirs(tex_dir)
     os.system(f"cp -r pyprofile/transformers/texcv/_tex_resources/* {tex_dir}/")
 
 
-def write_tex(filename, tex_dir, content):
+def _write_tex(filename, tex_dir, content):
     if not os.path.exists(tex_dir):
         os.makedirs(tex_dir)
 
@@ -41,5 +50,7 @@ def write_tex(filename, tex_dir, content):
         texfile.write(content)
 
 
-if __name__ == '__main__':
-    generate_tex()
+def _escape_chars(dct, chars):
+    for char in chars:
+        dct = recursively_replace_dict_str(dct, char, f"\\{char}")
+    return dct

@@ -1,1 +1,1 @@
-from . import load_profile, pages
+from . import generate, pages

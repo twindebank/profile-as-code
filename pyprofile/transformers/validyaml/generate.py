@@ -1,19 +1,19 @@
 import glob
+import logging
 
-import click
 import ruamel.yaml as yaml
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-@click.command()
-@click.argument('profile_directory')
-@click.option('--censored/--uncensored', '-p', default=True)
-@click.option('--output', '-o')
-def validate_and_parse_profile(profile_directory, censored, output):
-    public_yaml = load_and_concat_yaml(profile_directory, '*.yml')
-    private_yaml = load_and_concat_yaml(profile_directory, '.*.yml')
+
+def main(profile_directory, censored, output):
+    logger.info(f"Loading profile from '{profile_directory}' and generating '{output}'")
+    public_yaml = _load_and_concat_raw_yaml(profile_directory, '*.yml')
+    private_yaml = _load_and_concat_raw_yaml(profile_directory, '.*.yml')
 
     if censored:
-        private_yaml = censor_private_yaml(private_yaml)
+        private_yaml = _censor_private_raw_yaml(private_yaml)
 
     profile_yaml = '\n'.join([private_yaml, public_yaml])
 
@@ -34,15 +34,16 @@ def validate_and_parse_profile(profile_directory, censored, output):
         explicit_start=True,
         explicit_end=True
     )
+    logger.info(f"Output saved to '{output}'")
 
 
-def load_and_concat_yaml(directory, file_pattern):
+def _load_and_concat_raw_yaml(directory, file_pattern):
     filenames = sorted(glob.glob(f"{directory}/{file_pattern}"))
     concatenated = '\n'.join([open(f).read() for f in filenames])
     return concatenated
 
 
-def censor_private_yaml(private_yaml):
+def _censor_private_raw_yaml(private_yaml):
     """Have to censor manually as loading in yaml fucks with aliases/anchors"""
     lines = private_yaml.split('\n')
     censored_lines = []
@@ -63,16 +64,5 @@ class NoAliasDumper(yaml.RoundTripDumper):
         return True
 
 
-def _recursively_replace_dict_str(d, orig, new):
-    if isinstance(d, dict):
-        for k, v in d.items():
-            d[k] = _recursively_replace_dict_str(v, orig, new)
-    elif isinstance(d, list):
-        return [_recursively_replace_dict_str(i, orig, new) for i in d]
-    elif isinstance(d, str):
-        return d.replace(orig, new)
-    return d
-
-
 if __name__ == '__main__':
-    validate_and_parse_profile()
+    main()

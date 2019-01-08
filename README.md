@@ -23,12 +23,15 @@ Invoke the different transformations using the `Makefile`.
 | Format           | Status      |
 |------------------|-------------|
 | Single YAML file | Done        |
-| LaTeX CV         | In progress |
-| Website          | Todo        |
+| LaTeX CV         | 95% Done    |
+| Website          | 80% Done    |
 
 # ToDo
+- move all makefile functionality to click interface
+- update readme
+- fork this repo to twindebank.io
+- add ability to select experience, add key field?
 - add full data, inc skills and skills to be developed
 - tweak spacing in cv pdf
-- add code to compile pdf, perhaps using docker
-- add code to generate website - maybe even move this repo to twindebank.io
 - have 'build' checks for validation
+- add spec validation using cerberus
