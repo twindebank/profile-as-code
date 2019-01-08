@@ -1,8 +1,6 @@
-import logging
-
 import click
 
-from pyprofile.transformers import validyaml, texcv
+from pyprofile.transformers import validyaml, texcv, website
 
 
 @click.group()
@@ -20,6 +18,18 @@ def validate_and_concat():
 def generate_tex_cv():
     texcv.generate.main("profile-private.yml", "tex-cv-private")
     texcv.generate.main("profile-public.yml", "tex-cv-public")
+
+
+@cli.command()
+def generate_website():
+    website.generate.main("profile-public.yml", "website")
+
+
+# @cli.command()
+# def generate_all():
+#     validate_and_concat()
+#     generate_tex_cv()
+#     generate_website()
 
 
 if __name__ == '__main__':

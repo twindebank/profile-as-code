@@ -24,7 +24,7 @@ education:
     location: Oxford, UK
     degree: MEng
     course: Engineering Science
-    classification: 2.i.
+    classification: 2.i., (68)
     start_date: Sep. 2013
     end_date: Jun. 2017
     achievements:
@@ -147,8 +147,8 @@ experience:
       business aspects to developing a novel, innovative product.
     long:
     - >
-      Led the design of a comprehensive code-base for a product designed to help visually
-      impaired people to
+      Lead the design of a comprehensive code-base for a product designed to help
+      visually impaired people to
       interpret non-verbal cues, utilising computer vision and machine learning.
     - >
       Constructed the entire image processing, image classification, and binaural
@@ -313,6 +313,13 @@ experience:
       continually with intense solo
       and team based activities. Light physical and weapons training.
 - name:
+    short: Umbrella Tree
+    long: Umbrella Tree
+  location: Corbridge, UK
+  job_title: Graphic Designer
+  start_date: Jul. 2011
+  end_date: Aug. 2011
+  description:
     short:
     - >
       Redesigned existing websites to meet a clients needs and attending meetings

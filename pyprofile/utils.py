@@ -7,3 +7,15 @@ def recursively_replace_dict_str(d, orig, new):
     elif isinstance(d, str):
         return d.replace(orig, new)
     return d
+
+
+def replace_none_with_str_recurs(any_dict):
+    for k, v in any_dict.items():
+        if v is None:
+            any_dict[k] = ""
+        elif isinstance(v, dict):
+            replace_none_with_str_recurs(v)
+        elif isinstance(v, list):
+            for n, item in enumerate(v):
+                if isinstance(item, dict):
+                    replace_none_with_str_recurs(item)
