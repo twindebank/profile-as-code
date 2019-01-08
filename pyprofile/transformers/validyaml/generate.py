@@ -1,9 +1,14 @@
 import glob
+import logging
 
 import ruamel.yaml as yaml
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 def main(profile_directory, censored, output):
+    logger.info(f"Loading profile from '{profile_directory}' and generating '{output}'")
     public_yaml = _load_and_concat_raw_yaml(profile_directory, '*.yml')
     private_yaml = _load_and_concat_raw_yaml(profile_directory, '.*.yml')
 
@@ -29,6 +34,7 @@ def main(profile_directory, censored, output):
         explicit_start=True,
         explicit_end=True
     )
+    logger.info(f"Output saved to '{output}'")
 
 
 def _load_and_concat_raw_yaml(directory, file_pattern):

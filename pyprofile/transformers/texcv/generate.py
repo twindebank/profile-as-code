@@ -1,3 +1,4 @@
+import logging
 import os
 
 import pyprofile.transformers.texcv as texcv
@@ -6,8 +7,13 @@ from pyprofile.utils import recursively_replace_dict_str
 
 TEX_SPECIAL_CHARS = '\\&%$#_{}~^'
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 def main(profile_file, resume_save_dir):
+    logger.info(f"Loading profile from '{profile_file}' and generating tex cv in '{resume_save_dir}'")
+
     _set_up_tex_dir(resume_save_dir)
 
     profile = loading.load_profile(profile_file)
@@ -25,6 +31,8 @@ def main(profile_file, resume_save_dir):
     for page, directory in structure.items():
         tex = getattr(texcv.pages, page).generate(profile)
         _write_tex(page, directory, tex)
+
+    logger.info(f"Output saved to '{resume_save_dir}'")
 
 
 def _set_up_tex_dir(tex_dir):
