@@ -2,7 +2,7 @@ import logging
 import os
 
 from pyprofile import loading
-from pyprofile.transformers.website import cv
+from pyprofile.transformers.website import cv, index
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -25,6 +25,15 @@ def main(profile_file, website_save_dir):
 
     set_up_html_dir(website_save_dir)
     profile = loading.load_profile(profile_file)
+
+    menu_items = {
+        'cv': 'cv.html',
+        'git': profile['basic_details']['git'],
+        'linkedin': profile['basic_details']['linkedin'],
+        'misc': '#'
+    }
+    index_html = index.generate_html(profile, menu_items)
+    save_html(index_html, f"{website_save_dir}/index.html")
 
     cv_html = cv.generate_html(profile)
     save_html(cv_html, f"{website_save_dir}/src/cv-body.html")
