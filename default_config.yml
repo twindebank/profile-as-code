@@ -1,0 +1,15 @@
+inputs:
+  profile_directory: profile
+outputs:
+  profile_yaml:
+    censored: profile-public.yml
+    uncensored: profile-private.yml
+  cv:
+    censored: cv_public.pdf
+    uncensored: cv_private.pdf
+    exclude:
+    - raf
+    - ewb
+    - umbrellatree
+    - skalene
+  website: website

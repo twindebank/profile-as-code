@@ -444,7 +444,6 @@ skills:
       description: Adds distributed tracing information to logger output and sends
         traces to the Stackdriver Trace API.
 
-- name: Python
 - name: Machine Learning
 - name: Kubernetes
 - name: Google Cloud Platform

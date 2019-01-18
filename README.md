@@ -23,11 +23,11 @@ Invoke the different transformations using the `Makefile`.
 | Format           | Status      |
 |------------------|-------------|
 | Single YAML file | Done        |
-| LaTeX CV         | 95% Done    |
-| Website          | 80% Done    |
+| LaTeX CV         | Done        |
+| Website          | Done        |
+| LinkenIn         | Not Started |
 
 # ToDo
-- tidy interface
 - add spec validation using cerberus
 - make installable
 - write tests and refactor

@@ -1,1 +1,1 @@
-from .interface import cli
+from pyprofile.interface import cli

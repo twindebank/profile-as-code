@@ -1,5 +1,6 @@
 import glob
 
+import click
 from ruamel import yaml as yaml
 
 
@@ -52,3 +53,14 @@ def _censor_private_raw_yaml(private_yaml):
     censored_yaml = '\n'.join(censored_lines)
 
     return censored_yaml
+
+
+class YamlConfigOption(click.Option):
+    """Loads YAML from a Click option argument."""
+
+    def type_cast_value(self, ctx, value):
+        try:
+            return load_yaml(value)
+        except Exception as e:
+            logger.exception(e)
+            raise click.BadParameter(value)

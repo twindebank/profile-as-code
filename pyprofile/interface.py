@@ -1,49 +1,21 @@
 import logging
 
+import click
+
 from pyprofile.transformers import validyaml, texcv, website
 import pyprofile.loading as loading
-import click
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-DEFAULT_CONFIG = {
-    "inputs": {
-        "profile_directory": "profile"
-    },
-    "outputs": {
-        "profile_yaml": {
-            'censored': 'profile-public.yml',
-            'uncensored': 'profile-private.yml',
-        },
-        "cv": {
-            'censored': "cv_public.pdf",
-            'uncensored': "cv_private.pdf",
-            'exclude': ['raf', 'ewb', 'umbrellatree', 'skalene']
-        },
-        "website": "website"
-    }
-}
-
-
-class YamlOption(click.Option):
-
-    def type_cast_value(self, ctx, value):
-        try:
-            if isinstance(value, dict):
-                return value
-            return loading.load_yaml(value)
-        except Exception as e:
-            logger.exception(e)
-            raise click.BadParameter(value)
-
 
 def config_option():
+    """Click Option decorator to load config from a YAML file."""
     return click.option(
         '-c', '--config',
-        default=DEFAULT_CONFIG,
+        default='default_config.yml',
         type=str,
-        cls=YamlOption,
+        cls=loading.YamlConfigOption,
         help="Path of YAML config file."
     )
 

@@ -57,7 +57,8 @@ def main(profile, cv_filename, cv_save_dir='.', exclude_experience=()):
     logger.info(f"Output saved to '{cv_path}'")
 
     os.system(f"rm -rf {LATEX_SOURCE}")
-    os.system(f"cp -r ._latex_source_bak/ {LATEX_SOURCE} ")
+    os.system(f"cp -r ._latex_source_bak/ {LATEX_SOURCE}")
+    os.system(f"rm -r ._latex_source_bak")
 
 
 def _write_tex(filename, tex_dir, content):
