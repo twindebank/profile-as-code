@@ -13,9 +13,9 @@ def config_option():
     """Click Option decorator to load config from a YAML file."""
     return click.option(
         '-c', '--config',
-        default='default_config.yml',
         type=str,
-        cls=loading.YamlConfigOption,
+        default='default_config.yml',
+        cls=loading.YamlConfigLoader,
         help="Path of YAML config file."
     )
 
@@ -50,7 +50,7 @@ def generate_tex_cv(config):
 def generate_website(config):
     """Generate website with CV and links."""
     profile_public = loading.load_profile(profile_directory=config['inputs']['profile_directory'], censored=True)
-    website.generate.main(profile_public, config['outputs']['website'])
+    website.generate.main(profile_public, config['outputs']['website']['directory'])
 
 
 @cli.command()
@@ -66,7 +66,7 @@ def generate_all(config):
     texcv.generate.main(profile_private, config['outputs']['cv']['uncensored'],
                         exclude_experience=config['outputs']['cv']['exclude'])
 
-    website.generate.main(profile_public, config['outputs']['website'])
+    website.generate.main(profile_public, config['outputs']['website']['directory'])
 
 
 if __name__ == '__main__':

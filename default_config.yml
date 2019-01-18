@@ -7,9 +7,7 @@ outputs:
   cv:
     censored: cv_public.pdf
     uncensored: cv_private.pdf
-    exclude:
-    - raf
-    - ewb
-    - umbrellatree
-    - skalene
-  website: website
+    exclude: []
+  website:
+    directory: website
+    background: null
