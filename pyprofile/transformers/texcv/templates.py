@@ -27,6 +27,7 @@ def cventry(h1_left=None, h2_left=None, h1_right=None, start_date=None, end_date
                     {_cvitems(cvitems)}
                 \end{{cvitems}}
             }}
+            \\vspace{{-0.2cm}}
     """
     return tex
 

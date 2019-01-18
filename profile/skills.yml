@@ -11,3 +11,19 @@ skills:
         details: *profile_as_code
       - type: Professional
         details: *logtracer
+  - name: Python
+  - name: Machine Learning
+  - name: Kubernetes
+  - name: Google Cloud Platform
+  - name: Microservices
+  - name: gRPC
+  - name: Semantic Web
+  - name: Resource Description Framework (RDF)
+  - name: API Development
+  - name: SPARQL
+  - name: ElasticSearch
+  - name: Conference Speaking
+  - name: Web Development
+  - name: Operating Systems
+  - name: Matlab
+

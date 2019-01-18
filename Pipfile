@@ -8,6 +8,7 @@ pyyaml = "*"
 click = "*"
 ruamel-yaml = "*"
 dominate = "*"
+docker = "*"
 
 [dev-packages]
 
