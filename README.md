@@ -27,13 +27,15 @@ Invoke the different transformations using the `Makefile`.
 | Website          | 80% Done    |
 
 # ToDo
-- refine interface
-- make installable
-- update readme
-- fork this repo to twindebank.io
-- add ability to select experience, add key field?
-- add full data, inc skills and skills to be developed
-- tweak spacing in cv pdf
-- have 'build' checks for validation
+- tidy interface
 - add spec validation using cerberus
+- make installable
+- write tests and refactor
+- move personal info to own repo, generalise this one
+- add website background argument
+- update readme
+- add copyright to outputs
+- add full data, inc skills and skills to be developed
+- have 'build' checks for validation
 - integrate with CI
+- integrate linkedin transformer
