@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 def set_up_html_dir(html_dir):
     if not os.path.exists(html_dir):
         os.makedirs(html_dir)
-    os.system(f"cp -r pyprofile/transformers/website/_html_resources/* {html_dir}")
+    os.system(f"cp -r pyprofile/transformers/website/_source/* {html_dir}")
 
 
 def save_html(html, filename):
@@ -20,11 +20,10 @@ def save_html(html, filename):
     fd.close()
 
 
-def main(profile_file, website_save_dir):
-    logger.info(f"Loading profile from '{profile_file}' and generating tex cv in '{website_save_dir}'")
+def main(profile, website_save_dir):
+    logger.info(f"Generating tex cv in '{website_save_dir}'")
 
     set_up_html_dir(website_save_dir)
-    profile = loading.load_profile(profile_file)
 
     menu_items = {
         'cv': 'cv.html',

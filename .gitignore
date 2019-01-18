@@ -356,6 +356,4 @@ venv.bak/
 .idea
 
 # profile-as-code
-.private.yml
-profile-private.yml
 *private*

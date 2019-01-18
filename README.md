@@ -27,7 +27,8 @@ Invoke the different transformations using the `Makefile`.
 | Website          | 80% Done    |
 
 # ToDo
-- move all makefile functionality to click interface
+- refine interface
+- make installable
 - update readme
 - fork this repo to twindebank.io
 - add ability to select experience, add key field?
@@ -35,3 +36,4 @@ Invoke the different transformations using the `Makefile`.
 - tweak spacing in cv pdf
 - have 'build' checks for validation
 - add spec validation using cerberus
+- integrate with CI

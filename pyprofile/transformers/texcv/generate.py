@@ -3,29 +3,30 @@ import os
 import docker
 
 import pyprofile.transformers.texcv as texcv
-from pyprofile import loading
 from pyprofile.utils import recursively_replace_dict_str
 
 TEX_SPECIAL_CHARS = '\\&%$#_{}~^'
+MODULE_DIR = os.path.dirname(__file__)
+LATEX_SOURCE = os.path.join(MODULE_DIR, '_source')
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def main(profile_file, resume_save_dir, exclude_experience=()):
-    logger.info(f"Loading profile from '{profile_file}' and generating tex cv in '{resume_save_dir}'")
+def main(profile, cv_filename, cv_save_dir='.', exclude_experience=()):
+    os.system(f"cp -r {LATEX_SOURCE} ._latex_source_bak/")
 
-    _set_up_tex_dir(resume_save_dir)
+    cv_path = os.path.join(cv_save_dir, cv_filename)
 
-    profile = loading.load_profile(profile_file)
+    logger.info(f"Generating tex cv at '{cv_path}.pdf'")
 
     profile = _escape_chars(profile, TEX_SPECIAL_CHARS)
 
     profile['experience'] = [exp for exp in profile['experience'] if exp['key'] not in exclude_experience]
 
-    pages_dir = os.path.join(resume_save_dir, 'resume')
+    pages_dir = os.path.join(LATEX_SOURCE, 'resume')
     structure = {
-        'resume': resume_save_dir,
+        'resume': LATEX_SOURCE,
         'education': pages_dir,
         'experience': pages_dir,
         'skills': pages_dir
@@ -35,31 +36,28 @@ def main(profile_file, resume_save_dir, exclude_experience=()):
         tex = getattr(texcv.pages, page).generate(profile)
         _write_tex(page, directory, tex)
 
-    logger.info(f"Output saved to '{resume_save_dir}'")
-
     client = docker.from_env()
 
     volumes = {
-        os.path.join(os.getcwd(), resume_save_dir): {'bind': '/source', 'mode': 'rw'}
+        os.path.join(os.getcwd(), LATEX_SOURCE): {'bind': '/source', 'mode': 'rw'}
     }
 
     output = client.containers.run(
         image='schickling/latex',
-        # command='ls -lash /source',
         command='xelatex resume.tex',
         remove=True,
         volumes=volumes,
         stdout=True,
         stderr=True
     )
+    os.system(f"cp -r {os.path.join(LATEX_SOURCE, 'resume.pdf')} {cv_path}")
 
     logger.info(output.decode("utf-8"))
 
+    logger.info(f"Output saved to '{cv_path}'")
 
-def _set_up_tex_dir(tex_dir):
-    if not os.path.exists(tex_dir):
-        os.makedirs(tex_dir)
-    os.system(f"cp -r pyprofile/transformers/texcv/_tex_resources/* {tex_dir}/")
+    os.system(f"rm -rf {LATEX_SOURCE}")
+    os.system(f"cp -r ._latex_source_bak/ {LATEX_SOURCE} ")
 
 
 def _write_tex(filename, tex_dir, content):
