@@ -1,10 +1,14 @@
 import glob
 import logging
+import pprint
 
 import click
 import cerberus
 
 from ruamel import yaml as yaml
+
+CONFIG_SPECS = 'specs/config.yml'
+PROFILE_SPECS = 'specs/profile.yml'
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -27,6 +31,14 @@ def load_profile(profile_directory, censored=True):
         preserve_quotes=True
     )
     del profile['private']
+
+    # profile = dict(profile)
+
+    validator = cerberus.Validator(load_yaml(PROFILE_SPECS))
+    if not validator.validate(profile):
+        pprint.pprint(validator.errors)
+        raise ValueError('Profile YAML not valid')
+
     return profile
 
 
@@ -61,13 +73,11 @@ def _censor_private_raw_yaml(private_yaml):
     return censored_yaml
 
 
-
 class YamlConfigLoader(click.Option):
     """Loads YAML from a Click option argument, if no input then loads defaults from spec."""
 
     def type_cast_value(self, ctx, value):
-        specs = load_yaml('specs/config.yml')
-        validator = cerberus.Validator(specs)
+        validator = cerberus.Validator(load_yaml(CONFIG_SPECS))
         try:
             config = load_yaml(value)
         except Exception as e:
@@ -79,6 +89,3 @@ class YamlConfigLoader(click.Option):
             raise click.BadParameter(value)
 
         return config
-
-
-
