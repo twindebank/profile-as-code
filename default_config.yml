@@ -2,12 +2,12 @@ inputs:
   profile_directory: profile
 outputs:
   profile_yaml:
-    censored: profile-public.yml
-    uncensored: profile-private.yml
+    censored: output/profile-public.yml
+    uncensored: output/profile-private.yml
   cv:
-    censored: cv_public.pdf
-    uncensored: cv_private.pdf
+    censored: output/cv_public.pdf
+    uncensored: output/cv_private.pdf
     exclude: []
   website:
-    directory: website
+    directory: output/website
     background: null

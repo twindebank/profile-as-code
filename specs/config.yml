@@ -49,5 +49,8 @@ outputs:
         background:
           # Alternative image background to use for website.
           type: string
-          required: true
+          nullable: true
+        favicon:
+          # Alternative image background to use for website.
+          type: string
           nullable: true
