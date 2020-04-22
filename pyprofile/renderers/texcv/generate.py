@@ -3,7 +3,7 @@ import os
 import docker
 
 import pyprofile.transformers.texcv as texcv
-from pyprofile.utils import recursively_replace_dict_str
+from pyprofile.renderers.texcv.utils import recursively_replace_dict_str
 
 TEX_SPECIAL_CHARS = '\\&%$#_{}~^'
 MODULE_DIR = os.path.dirname(__file__)

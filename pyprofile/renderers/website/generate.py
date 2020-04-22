@@ -1,7 +1,6 @@
 import logging
 import os
 
-from pyprofile import loading
 from pyprofile.transformers.website import cv, index
 
 logging.basicConfig(level=logging.INFO)

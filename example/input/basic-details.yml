@@ -1,8 +1,6 @@
 basic_details:
   name: Theo Windebank
   age: 23
-  mobile: *mobile
-  email: *email
   homepage: theowindebank.co.uk
   git: twindebank
   linkedin: linkedin.com/in/theowindebank

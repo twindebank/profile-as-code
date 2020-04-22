@@ -1,6 +1,5 @@
 experience:
-  - &bbc
-    key: bbc
+  bbc:
     name:
       short: The BBC
       long: The British Broadcasting Coorporation
@@ -41,8 +40,7 @@ experience:
           Talking at PyData London 2018 about some of the technologies the team are working with proved an invaluable
           experience, which, among other things, emphasised to me the importance of the communities that surround the open
           source tools we use daily.
-  - &cue
-    key: cue
+  cue:
     name:
       short: Cue Sense Ltd.
       long: Cue Sense Ltd.
@@ -79,8 +77,7 @@ experience:
         - >
           Pitched the product to potential investors, heightening my awareness and understanding of the marketing and
           business aspects to developing a novel, innovative product.
-  - &mlrg
-    key: mlrg
+  mlrg:
     name:
       short: Machine Learning Research Group
       long: Oxford University Machine Learning Research Group
@@ -123,8 +120,7 @@ experience:
         - >
           Feedback from supervisors placed me in the top 5% of students who have worked with the Oxford-Man institute,
           confirming my ability to carry out high value work in this sector.
-  - &ewb
-    key: ewb
+  ewb:
     name:
       short: Engineers Without Borders
       long: Engineers Without Borders Oxford UK
@@ -141,8 +137,7 @@ experience:
         - >
           Built a data collection system for a team to gather and process information on malaria cases in rural Peru
           with a PHP/SQL back-end, improving my project management and team-work skills.
-  - &newcastleuni
-    key: newcastleuni
+  newcastleuni:
     name:
       short: Communications, Sensors, Signal and Information Processing Research Group
       long: Newcastle University Communications, Sensors, Signal and Information Processing Research Group
@@ -166,8 +161,7 @@ experience:
           Implemented a variety of processing techniques in MATLAB including delay-sum beam-forming, synthetic aperture
           focusing and signal filtering. Challenging problems encountered during the project enhanced my independent
           problem solving and research skills.
-  - &skalene
-    key: skalene
+  skalene:
     name:
       short: Skalene Ltd.
       long: Skalene Limited
@@ -176,14 +170,12 @@ experience:
     start_date: Jul. 2014
     end_date: Apr. 2015
     description:
-      short: &skaleneshort
+      short:
         - >
           Worked on a cheap and compact PCR (Polymerase Chain Reaction) unit used to amplify DNA. It was my
           responsibility to simulate and analyse heat flows between parts of the PCR to maintain a uniform heat
           distribution. This fine-tuned my analytical skills and gave me experience with some FEM modules of SolidWorks.
-      long: *skaleneshort
-  - &raf
-    key: raf
+  raf:
     name:
       short: RAF
       long: Royal Air Force
@@ -192,13 +184,11 @@ experience:
     start_date: Oct. 2013
     end_date: Jun. 2014
     description:
-      short: &rafshort
+      short:
         - >
           Tutored to fly the Grob G 115 plane, totalling ~4hrs flight time. Challenged continually with intense solo
           and team based activities. Light physical and weapons training.
-      long: *rafshort
-  - &umbrellatree
-    key: umbrellatree
+  umbrellatree:
     name:
       short: Umbrella Tree
       long: Umbrella Tree
@@ -207,7 +197,6 @@ experience:
     start_date: Jul. 2011
     end_date: Aug. 2011
     description:
-      short: &umbrellatreeshort
+      short:
         - >
           Redesigned existing websites to meet a clients needs and attending meetings to talk through elements of the designs.
-      long: *umbrellatreeshort
