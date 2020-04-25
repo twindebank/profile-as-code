@@ -139,7 +139,6 @@ experience:
             required: true
           long:
             type: string
-            required: true
       location:
         type: string
         required: true

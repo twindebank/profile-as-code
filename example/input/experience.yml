@@ -1,4 +1,30 @@
 experience:
+  monzo:
+    name:
+      short: Monzo Bank
+    location: London, UK
+    job_title: Data Engineer
+    start_date: Apr. 2019
+    end_date: Current
+    description:
+      short:
+        - >
+          data engineering function at monzo like an internal facing product team, the customers are the people developing
+          data models and doing analyses for monzo
+          have built an understanding of the importance of good platforms and tooling
+          requires a deep understanding of how to model data in a way that scales with a rapidly growing company
+        - >
+          In my fist three months at Monzo, I worked on migrating from a hand rolled python + sql solution to dbt
+          made lots of decisions of how we use dbt at monzo
+          identified as a high performer within my probation period and promoted 3 months in
+
+        - >
+          Building platforms to scale out Monzo's data function.
+        - >
+          tech: python, dbt, Airflow, Go
+        - >
+          projects: dbt migration, sensitive data, airflow optimisation, data action hub
+
   bbc:
     name:
       short: The BBC
@@ -6,26 +32,26 @@ experience:
     location: London, UK
     job_title: Data Engineer
     start_date: Nov. 2017
-    end_date: Current
+    end_date: Apr. 2019
     description:
       short:
         - >
-          Having joined BBC Datalab in its early formation, I have worked along side the team to develop organisation-wide
+          Having joined BBC Datalab in its early formation, I worked with the team to develop organisation-wide
           information sharing and federation systems, using structured data, semantics, and machine learning.
         - >
-          As an 'experimental' team, we have been working with technologies and platforms new to the BBC - discovering
+          As an 'experimental' team, we worked with technologies and platforms new to the BBC - discovering
           how best technologies such as Kubernetes, Docker, and Istio can be employed on Google Cloud Platform to
-          maximise the value for our audiences.
+          maximise the value for the audiences.
         - >
-          Cross-functionality in the team has me deep diving into many areas of work, such as provisioning and managing our
+          Cross-functionality in the team has me deep diving into many areas, such as provisioning and managing our
           Kubernetes clusters using Terraform, implementing vector similarity scoring for our collaborative filtering
           model in Elasticsearch, developing and adding features to an API supporting a live app, and writing
           a library for distributed logging and tracing across our microservices.
         - >
-          Beyond coding, I have talked at PyData London 2018 about technologies the team are working with. This proved
-          an invaluable experience, which, among other things, emphasised to me the importance of the communities that
-          surround the open source tools we use daily. In addition, I work with a colleague on communications for the
-          team, determining how we best share knowledge to the wider BBC and our audiences.
+          I talked at PyData London 2018 about technologies the team are working with. This proved
+          an invaluable experience, which, among other things, emphasised the importance of the communities that
+          surround the open source tools we use daily. In addition, I worked on communications for the
+          team, determining how we best disseminate knowledge to the wider BBC and our audiences.
       long:
         - >
           Working as part of a new team tackling data silos within the BBC. From scratch, the team are building a
