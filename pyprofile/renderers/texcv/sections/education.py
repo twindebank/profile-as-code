@@ -8,7 +8,7 @@ GRADE_TEX_MAP = {'A*': 'A${{^*}}$', 'A': 'A'}
 def generate(profile):
     cventries = []
 
-    universities = profile["education"].get('university')
+    universities = profile["education"].get('university', [])
     for university in universities:
         cventry = templates.cventry(
             university.get('institution'),
@@ -20,7 +20,7 @@ def generate(profile):
         )
         cventries.append(cventry)
 
-    schools = profile["education"].get('school')
+    schools = profile["education"].get('school', [])
     for school in schools:
         a_levels_cvitem = _a_levels_to_cvitem(school)
         gcses_cvitem = _gcses_to_cvitem(school)

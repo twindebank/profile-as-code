@@ -17,24 +17,27 @@ class CVRenderer(Renderer):
     name: str
     censor: bool = True
     exclude_experience: List[str] = field(default_factory=list)
+    exclude_education: List[str] = field(default_factory=list)
 
     special_tex_chars = '\\&%$#_{}~^'
     latex_source = Path(__file__).parent / '_source'
     latex_img = 'schickling/latex:latest'
 
-    def render(self, profile, ouput_dir):
+    def render(self, profile, output_dir):
         cv = deepcopy(profile.censored if self.censor else profile.uncensored)
 
         os.system(f"cp -r {self.latex_source} ._latex_source_bak/")
 
-        cv_path = ouput_dir / self.name
+        cv_path = output_dir / self.name
 
         logger.info(f"Generating tex cv at '{cv_path}'")
 
         profile = _escape_chars(cv, self.special_tex_chars)
 
-        profile['experience'] = [exp for exp_name, exp in profile['experience'].items() if exp_name not in self.exclude_experience]
-
+        profile['experience'] = [exp for exp_name, exp in profile['experience'].items() if
+                                 exp_name not in self.exclude_experience]
+        profile['education'] = {edu_name: edu for edu_name, edu in profile['education'].items() if
+                                edu_name not in self.exclude_education}
         pages_dir = os.path.join(self.latex_source, 'resume')
         structure = {
             'resume': self.latex_source,
