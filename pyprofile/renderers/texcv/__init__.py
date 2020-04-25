@@ -1,1 +1,1 @@
-from . import generate, pages
+from . import renderer

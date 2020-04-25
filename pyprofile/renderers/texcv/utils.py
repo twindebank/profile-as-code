@@ -14,7 +14,7 @@ def recursively_censor_dict_strs(d, censor_with):
         for k, v in d.items():
             d[k] = recursively_censor_dict_strs(v, censor_with)
     elif isinstance(d, list):
-        return [recursively_censor_dict_strs(i, censor_with) for i in d]
-    elif isinstance(d, str):
+        return [recursively_censor_dict_strs(v, censor_with) for v in d]
+    elif isinstance(d, str) or isinstance(d, int):
         return censor_with
     return d

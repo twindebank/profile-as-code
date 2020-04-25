@@ -1,10 +1,10 @@
 import inspect
 
-from pyprofile.transformers.texcv import templates
+from pyprofile.renderers.texcv import templates
 
 
 def generate(profile):
-    skills = [skill['name'] for skill in profile.get('skills')]
+    skills = profile.get('skills', [])
     cvitem = " ~~·~~ ".join(skills)
     cventry = templates.cventry(cvitems=[cvitem], vspace="-1em")
     cvsection = templates.cvsection('Skills', [cventry])

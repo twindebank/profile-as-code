@@ -9,8 +9,10 @@ basic_details:
       type: integer
       required: true
     mobile:
-      type: string
       required: true
+      anyof_schema:
+        - type: string
+        - type: integer
     email:
       type: string
       required: true
@@ -120,15 +122,14 @@ education:
                   type: integer
                   required: true
 experience:
-  type: list
+  type: dict
   required: true
-  schema:
+  keyschema:
+    type: string
+  valueschema:
     type: dict
     required: true
     schema:
-      key:
-        type: string
-        required: true
       name:
         type: dict
         required: true
@@ -163,7 +164,6 @@ experience:
               required: true
           long:
             type: list
-            required: true
             schema:
               type: string
               required: true
@@ -204,21 +204,7 @@ skills:
   type: list
   required: True
   schema:
-    type: dict
-    required: true
-    schema:
-      name:
-        type: string
-        required: true
-      level:
-        type: string
-        required: false
-      years:
-        type: integer
-        required: false
-      experience:
-        type: list
-        allow_unknown: true
+    type: string
 
 talks:
   type: list

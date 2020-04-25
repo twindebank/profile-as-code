@@ -1,3 +1,3 @@
 class Renderer:
-    def render(self):
+    def render(self, profile, ouput_dir):
         pass

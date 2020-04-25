@@ -1,6 +1,6 @@
 import inspect
 
-from pyprofile.transformers.texcv import templates
+from pyprofile.renderers.texcv import templates
 
 
 def generate(profile):
