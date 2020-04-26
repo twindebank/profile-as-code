@@ -14,20 +14,16 @@ experience:
           highly praised and used by over 100 people at Monzo. As a result of my technical and communications work,
           I was identified as a high performer and promoted at the end of my probation period.
         - >
-          To ensure the dbt roll-out was successful, I extended the tooling with a focus on user-friendliness. For
-          example, I created a development shell for data scientists to use which is run under-the-hood in a container,
-          with automatic updates and a heads-up display of information relevant for data modelling work.
-        - >
           Code I have written helps tens of people develop on and deploy the same data models daily, with the reliability
           increasing thanks to rigorous CI/CD checks as well as a strong embedded data testing culture that I have helped
           cultivate.
         - >
-          As tech lead, I designed and led the development of the system now in place for controlling access to sensitive data.
+          As tech lead, I designed and led the development of a system to control access to sensitive user data.
           The distributed system, written in Go, is able to automatically approve or deny access requests,
           and allows people to securely access to the data they need within minutes.
         - >
-          At Monzo, I've broken my fair share of things. In doing so, I immediately assign myself as the incident lead
-          and take ownership in finding a resolution; co-ordinating others and communicating to the wider company until
+          At Monzo, I've broken my fair share of things. In doing so, I have immediately assigned myself as the incident lead
+          and taken ownership in finding a resolution; co-ordinating others and communicating to the wider company until
           the incident is resolved.
         - >
           Working at Monzo has given me an understanding of how to develop software and platforms in a way that can support
