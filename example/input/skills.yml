@@ -1,8 +1,12 @@
 skills:
   - Python
+  - dbt
+  - Airflow
   - Machine Learning
+  - Go
   - Kubernetes
   - Google Cloud Platform
+  - Systems Design
   - Microservices
   - gRPC
   - Semantic Web
@@ -12,6 +16,4 @@ skills:
   - ElasticSearch
   - Conference Speaking
   - Web Development
-  - Operating Systems
-  - Matlab
 

@@ -3,28 +3,35 @@ experience:
     name:
       short: Monzo Bank
     location: London, UK
-    job_title: Data Engineer
+    job_title: Data Engineer, Tech Lead
     start_date: Apr. 2019
     end_date: Current
     description:
       short:
         - >
-          data engineering function at monzo like an internal facing product team, the customers are the people developing
-          data models and doing analyses for monzo
-          have built an understanding of the importance of good platforms and tooling
-          requires a deep understanding of how to model data in a way that scales with a rapidly growing company
+          In my first three months, I helped roll out dbt (data build tool) across the company. I designed and built
+          supporting infrastructure and wrote the onboarding docs introducing the new ways of working, which have been
+          highly praised and used by over 100 people at Monzo. As a result of my technical and communications work,
+          I was identified as a high performer and promoted at the end of my probation period.
         - >
-          In my fist three months at Monzo, I worked on migrating from a hand rolled python + sql solution to dbt
-          made lots of decisions of how we use dbt at monzo
-          identified as a high performer within my probation period and promoted 3 months in
-
+          To ensure the dbt roll-out was successful, I extended the tooling with a focus on user-friendliness. For
+          example, I created a development shell for data scientists to use which is run under-the-hood in a container,
+          with automatic updates and a heads-up display of information relevant for data modelling work.
         - >
-          Building platforms to scale out Monzo's data function.
+          Code I have written helps tens of people develop on and deploy the same data models daily, with the reliability
+          increasing thanks to rigorous CI/CD checks as well as a strong embedded data testing culture that I have helped
+          cultivate.
         - >
-          tech: python, dbt, Airflow, Go
+          As tech lead, I designed and led the development of the system now in place for controlling access to sensitive data.
+          The distributed system, written in Go, is able to automatically approve or deny access requests,
+          and allows people to securely access to the data they need within minutes.
         - >
-          projects: dbt migration, sensitive data, airflow optimisation, data action hub
-
+          At Monzo, I've broken my fair share of things. In doing so, I immediately assign myself as the incident lead
+          and take ownership in finding a resolution; co-ordinating others and communicating to the wider company until
+          the incident is resolved.
+        - >
+          Working at Monzo has given me an understanding of how to develop software and platforms in a way that can support
+          rapidly growing data teams and volume of data, enabling people to perform at exceptional levels.
   bbc:
     name:
       short: The BBC
@@ -39,33 +46,19 @@ experience:
           Having joined BBC Datalab in its early formation, I worked with the team to develop organisation-wide
           information sharing and federation systems, using structured data, semantics, and machine learning.
         - >
-          As an 'experimental' team, we worked with technologies and platforms new to the BBC - discovering
-          how best technologies such as Kubernetes, Docker, and Istio can be employed on Google Cloud Platform to
-          maximise the value for the audiences.
+          As an experimental team, we worked with technologies and platforms new to the BBC - discovering
+          how best technologies and platforms such as Google Cloud, Kubernetes, and Docker, could maximise value
+          for the audiences.
         - >
-          Cross-functionality in the team has me deep diving into many areas, such as provisioning and managing our
+          Cross-functionality in the team had me deep diving into many areas, such as provisioning and managing our
           Kubernetes clusters using Terraform, implementing vector similarity scoring for our collaborative filtering
           model in Elasticsearch, developing and adding features to an API supporting a live app, and writing
           a library for distributed logging and tracing across our microservices.
         - >
-          I talked at PyData London 2018 about technologies the team are working with. This proved
+          I talked at PyData London 2018 about technologies the team worked with. This proved
           an invaluable experience, which, among other things, emphasised the importance of the communities that
           surround the open source tools we use daily. In addition, I worked on communications for the
-          team, determining how we best disseminate knowledge to the wider BBC and our audiences.
-      long:
-        - >
-          Working as part of a new team tackling data silos within the BBC. From scratch, the team are building a
-          microservice-based infrastructure, designed to ingest and relate content from across the BBC into a single place.
-        - >
-          Experience, understanding, and general awareness of the many tools and platforms used in a context such as this
-          have increased dramatically.
-        - >
-          Growth of knowledge beyond code is facilitated through exposure to the product growing from concept to reality;
-          for example, how internal/external communications are handled, how roadmaps are developed and are dynamic, how to deal with constantly changing requirements, and how to make decisions in unfamiliar environments.
-        - >
-          Talking at PyData London 2018 about some of the technologies the team are working with proved an invaluable
-          experience, which, among other things, emphasised to me the importance of the communities that surround the open
-          source tools we use daily.
+          team, determining how we best disseminate knowledge to the wider BBC.
   cue:
     name:
       short: Cue Sense Ltd.
@@ -77,32 +70,18 @@ experience:
     description:
       short:
         - >
-          Built a code base to help visually impaired people to interpret non-verbal cues, utilising computer vision and
-          machine learning.
+          Built software designed to help visually impaired people in interpreting non-verbal cues, utilising computer
+          vision and machine learning.
         - >
           Constructed the entire image processing, image classification, and sound feedback pipeline for the
-          software prototype, using Python 3.6 and a multitude of advanced data science techniques. This built upon
+          software prototype, using Python 3 and a multitude of ML-based techniques. This built upon
           my experience of creating unique machine learning pipelines for novel applications.
         - >
           Designed around challenging physical and economical constraints, helping expand my knowledge and practical
           experience in designing software architecture and core algorithms for market-facing products.
         - >
-          Pitched the product to potential investors, heightening my awareness and understanding of the marketing and
+          Pitched the product to investors, heightening my awareness and understanding of the marketing and
           business aspects to developing an innovative product.
-      long:
-        - >
-          Led the design of a comprehensive code-base for a product designed to help visually impaired people to
-          interpret non-verbal cues, utilising computer vision and machine learning.
-        - >
-          Constructed the entire image processing, image classification, and binaural sound feedback pipeline for the
-          software prototype, using Python 3.6 and a multitude of advanced data science techniques. This has built upon
-          my experience of creating whole unique machine learning pipelines for novel applications.
-        - >
-          Designed around challenging physical and economical constraints, helping expand my knowledge and practical
-          experience in designing software architecture and core algorithms for market-facing products.
-        - >
-          Pitched the product to potential investors, heightening my awareness and understanding of the marketing and
-          business aspects to developing a novel, innovative product.
   mlrg:
     name:
       short: Machine Learning Research Group
@@ -125,10 +104,10 @@ experience:
           Planned and carried out a series of microphone tests, resulting in a large batch of microphones being purchased
           and used to capture further biological recordings.
         - >
-          Built upon this work within my fourth year university project, recieving a mark of 83 on final grading.
+          Built upon this work within my fourth year university project, receiving a mark of 83 on final grading.
         - >
           Feedback from supervisors placed me in the top 5% of students who have worked with the Oxford-Man institute,
-          confirming my ability to carry out high value work in this sector.
+          confirming my ability to carry out high value work in the ML research space.
       long:
         - >
           Used a variety of machine learning techniques during my internship within the Oxford-Man Institute of
