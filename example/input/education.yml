@@ -1,0 +1,44 @@
+education:
+  university:
+    - institution: The University of Oxford
+      college: St. Catherine's College
+      location: Oxford, UK
+      degree: MEng
+      course: Engineering Science
+      classification: 2.i., (68)
+      start_date: Sep. 2013
+      end_date: Jun. 2017
+      achievements:
+        - >
+          Awarded the Gibb's prize for best third year team project. Designed hardware, a distributed computing facility,
+          and set of computational processes that make it possible to scan, process, upload, and save an entire human brain
+          for possible future reanimation. This fine-tuned my team working skills and broadened my data analysis
+          skill-set.
+        - >
+          Co-authored a paper relating to the findings of my fourth year project, `Mosquito Detection with Neural Networks:
+          The Buzz of Deep Learning'.
+        - >
+          Key Modules: Machine Vision & Robotics · Machine Learning · Medical Imaging & Informatics · Probability,
+          Systems & Perturbation Methods · Nonlinear & Predictive Control · Software Engineering · Information Engineering ·
+          Biomedical Modelling & Monitoring.
+  school:
+    - name: Queen Elizabeth High School
+      location: Hexham, UK
+      start_date: Sep. 2008
+      end_date: Jun. 2013
+      a_levels:
+        - name: Maths
+          grade: A*
+        - name: Further Maths
+          grade: A*
+        - name: Physics
+          grade: A*
+        - name: Product Design
+          grade: A
+        - name: Extended Project
+          grade: A
+      gcses:
+        - grade: A*
+          count: 6
+        - grade: A
+          count: 5

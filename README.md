@@ -28,14 +28,10 @@ Invoke the different transformations using the `Makefile`.
 | LinkenIn         | Not Started |
 
 # ToDo
-- add spec validation using cerberus
-- make installable
-- write tests and refactor
+- reduce older exp
+- fill out current exp
+- update readme post-refactor
 - move personal info to own repo, generalise this one
 - add website background argument
 - update readme
-- add copyright to outputs
-- add full data, inc skills and skills to be developed
-- have 'build' checks for validation
-- integrate with CI
-- integrate linkedin transformer
+- integrate linkedin target

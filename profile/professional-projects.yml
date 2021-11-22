@@ -1,5 +1,0 @@
-professional_projects:
-  - &logtracer
-    name: Logtracer
-    url: https://github.com/bbc/logtracer
-    description:  Adds distributed tracing information to logger output and sends traces to the Stackdriver Trace API.

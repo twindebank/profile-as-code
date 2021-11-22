@@ -1,9 +1,0 @@
-personal_projects:
-  - &profile_as_code
-    name: profile-as-code
-    url: https://github.com/twindebank/profile-as-code
-    description: My professional and personal details in machine-readable format.
-  - &shallow_ocean_expedition
-    name: Shallow Ocean Expedition
-    description: Recreation of a board game as code.
-    url: https://github.com/twindebank/ShallowOceanExpedition

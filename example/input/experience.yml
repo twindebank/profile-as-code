@@ -1,0 +1,203 @@
+experience:
+  monzo:
+    name:
+      short: Monzo Bank
+    location: London, UK
+    job_title: Data Engineer, Tech Lead
+    start_date: Apr. 2019
+    end_date: Current
+    description:
+      short:
+        - >
+          In my first three months, I helped roll out dbt (data build tool) across the company. I designed and built
+          supporting infrastructure and wrote the onboarding docs introducing the new ways of working, which have been
+          highly praised and used by over 100 people at Monzo. As a result of my technical and communications work,
+          I was identified as a high performer and promoted at the end of my probation period.
+        - >
+          Code I have written helps tens of people develop on and deploy the same data models daily, with the reliability
+          increasing thanks to rigorous CI/CD checks as well as a strong embedded data testing culture that I have helped
+          cultivate.
+        - >
+          As tech lead, I designed and led the development of a system to control access to sensitive user data.
+          The distributed system, written in Go, is able to automatically approve or deny access requests,
+          and allows people to securely access to the data they need within minutes.
+        - >
+          At Monzo, I've broken my fair share of things. In doing so, I have immediately assigned myself as the incident lead
+          and taken ownership in finding a resolution; co-ordinating others and communicating to the wider company until
+          the incident is resolved.
+        - >
+          Working at Monzo has given me an understanding of how to develop software and platforms in a way that can support
+          rapidly growing data teams and volume of data, enabling people to perform at exceptional levels.
+  bbc:
+    name:
+      short: The BBC
+      long: The British Broadcasting Coorporation
+    location: London, UK
+    job_title: Data Engineer
+    start_date: Nov. 2017
+    end_date: Apr. 2019
+    description:
+      short:
+        - >
+          Having joined BBC Datalab in its early formation, I worked with the team to develop organisation-wide
+          information sharing and federation systems, using structured data, semantics, and machine learning.
+        - >
+          As an experimental team, we worked with technologies and platforms new to the BBC - discovering
+          how best technologies and platforms such as Google Cloud, Kubernetes, and Docker, could maximise value
+          for the audiences.
+        - >
+          Cross-functionality in the team had me deep diving into many areas, such as provisioning and managing our
+          Kubernetes clusters using Terraform, implementing vector similarity scoring for our collaborative filtering
+          model in Elasticsearch, developing and adding features to an API supporting a live app, and writing
+          a library for distributed logging and tracing across our microservices.
+        - >
+          I talked at PyData London 2018 about technologies the team worked with. This proved
+          an invaluable experience, which, among other things, emphasised the importance of the communities that
+          surround the open source tools we use daily. In addition, I worked on communications for the
+          team, determining how we best disseminate knowledge to the wider BBC.
+  cue:
+    name:
+      short: Cue Sense Ltd.
+      long: Cue Sense Ltd.
+    location: London, UK
+    job_title: Software Engineer
+    start_date: Jun. 2017
+    end_date: Nov. 2017
+    description:
+      short:
+        - >
+          Built software designed to help visually impaired people in interpreting non-verbal cues, utilising computer
+          vision and machine learning.
+        - >
+          Constructed the entire image processing, image classification, and sound feedback pipeline for the
+          software prototype, using Python 3 and a multitude of ML-based techniques. This built upon
+          my experience of creating unique machine learning pipelines for novel applications.
+        - >
+          Designed around challenging physical and economical constraints, helping expand my knowledge and practical
+          experience in designing software architecture and core algorithms for market-facing products.
+        - >
+          Pitched the product to investors, heightening my awareness and understanding of the marketing and
+          business aspects to developing an innovative product.
+  mlrg:
+    name:
+      short: Machine Learning Research Group
+      long: Oxford University Machine Learning Research Group
+    location: University of Oxford
+    job_title: Software Developer Intern
+    start_date: Jul. 2016
+    end_date: Sep. 2016
+    description:
+      short:
+        - >
+          Used a variety of machine learning techniques during my internship within the Oxford-Man Institute of
+          Quantitative Finance, working on a project to detect mosquito presence, species, and gender from audio
+          recordings.
+        - >
+          Developed a fully-featured python package to act as a test-bed for detection algorithms, aimed for a public
+          open source release. This has improved my skills in coding for a long-term project where the code will be
+          further used and worked on by others.
+        - >
+          Planned and carried out a series of microphone tests, resulting in a large batch of microphones being purchased
+          and used to capture further biological recordings.
+        - >
+          Built upon this work within my fourth year university project, receiving a mark of 83 on final grading.
+        - >
+          Feedback from supervisors placed me in the top 5% of students who have worked with the Oxford-Man institute,
+          confirming my ability to carry out high value work in the ML research space.
+      long:
+        - >
+          Used a variety of machine learning techniques during my internship within the Oxford-Man Institute of
+          Quantitative Finance, working on a project to detect mosquito presence, species, and gender from audio
+          recordings.
+        - >
+          Developed a fully-featured python package to act as a test-bed for detection algorithms, aimed for a public
+          open source release. This has improved my skills in coding for a long term project where the code will be
+          further used and worked on by others.
+        - >
+          Planned and carried out a series of microphone tests, resulting in a large batch of microphones being
+          purchased and used to capturefurther biological recordings.
+        - >
+          Built upon this work within my fourth year university project, recieving a mark of 83 on final grading.
+        - >
+          Feedback from supervisors placed me in the top 5% of students who have worked with the Oxford-Man institute,
+          confirming my ability to carry out high value work in this sector.
+  ewb:
+    name:
+      short: Engineers Without Borders
+      long: Engineers Without Borders Oxford UK
+    location: Oxford, UK
+    job_title: Software Developer
+    start_date: Nov. 2015
+    end_date: Mar. 2016
+    description:
+      short:
+        - >
+          Built a data collection system for a team to gather and process information on malaria cases in rural Peru
+          with a PHP/SQL back-end, improving my project management and team-work skills.
+      long:
+        - >
+          Built a data collection system for a team to gather and process information on malaria cases in rural Peru
+          with a PHP/SQL back-end, improving my project management and team-work skills.
+  newcastleuni:
+    name:
+      short: Communications, Sensors, Signal and Information Processing Research Group
+      long: Newcastle University Communications, Sensors, Signal and Information Processing Research Group
+    location: Newcastle University, UK
+    job_title: Research Assistant
+    start_date: Jul. 2105
+    end_date: Sep. 2015
+    description:
+      short:
+        - >
+          Internship working on various sonar systems to image undersea objects beneath the seabed.
+        - >
+          Implemented a variety of processing techniques in MATLAB including delay-sum beam-forming, synthetic aperture
+          focusing and signal filtering. Challenging problems encountered during the project enhanced my problem solving
+          and research skills.
+      long:
+        - >
+          Internship with the Communications, Sensors, Signal and Information Processing Research Group, working on
+          various sonar systems to image undersea objects beneath the seabed.
+        - >
+          Implemented a variety of processing techniques in MATLAB including delay-sum beam-forming, synthetic aperture
+          focusing and signal filtering. Challenging problems encountered during the project enhanced my independent
+          problem solving and research skills.
+  skalene:
+    name:
+      short: Skalene Ltd.
+      long: Skalene Limited
+    location: Cambridge, UK
+    job_title: Modelling & Analysis Technician
+    start_date: Jul. 2014
+    end_date: Apr. 2015
+    description:
+      short:
+        - >
+          Worked on a cheap and compact PCR (Polymerase Chain Reaction) unit used to amplify DNA. It was my
+          responsibility to simulate and analyse heat flows between parts of the PCR to maintain a uniform heat
+          distribution. This fine-tuned my analytical skills and gave me experience with some FEM modules of SolidWorks.
+  raf:
+    name:
+      short: RAF
+      long: Royal Air Force
+    location: RAF Benson
+    job_title: Officer Cadet
+    start_date: Oct. 2013
+    end_date: Jun. 2014
+    description:
+      short:
+        - >
+          Tutored to fly the Grob G 115 plane, totalling ~4hrs flight time. Challenged continually with intense solo
+          and team based activities. Light physical and weapons training.
+  umbrellatree:
+    name:
+      short: Umbrella Tree
+      long: Umbrella Tree
+    location: Corbridge, UK
+    job_title: Graphic Designer
+    start_date: Jul. 2011
+    end_date: Aug. 2011
+    description:
+      short:
+        - >
+          Redesigned existing websites to meet a clients needs and attending meetings to talk through elements of the designs.
