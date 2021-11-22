@@ -1,8 +1,8 @@
 import logging
 import os
 
-from pyprofile import loading
-from pyprofile.transformers.website import cv, index
+from legacy.pyprofile import loading
+from legacy.pyprofile.transformers.website import cv, index
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

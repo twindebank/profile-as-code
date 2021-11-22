@@ -2,8 +2,8 @@ import logging
 import os
 import docker
 
-import pyprofile.transformers.texcv as texcv
-from pyprofile.utils import recursively_replace_dict_str
+import legacy.pyprofile.transformers.texcv as texcv
+from legacy.pyprofile.utils import recursively_replace_dict_str
 
 TEX_SPECIAL_CHARS = '\\&%$#_{}~^'
 MODULE_DIR = os.path.dirname(__file__)
