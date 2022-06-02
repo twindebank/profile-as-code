@@ -12,7 +12,7 @@ def transform(resume: dict) -> dict:
     resume['skills'] = []
     resume['basics']['profiles'] = resume['basics']['profiles'][1:]
     resume['work'] = resume['work'][:6]
-    resume['languages'] = None
+    resume['languages'] = []
     resume['basics']['picture'] = ''
     resume['volunteer'] = []
     return resume
